@@ -5,23 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e3f1cf-e1ed-4d53-a484-ee26f2c03176" name="Changes" comment="second">
+      <change afterPath="$PROJECT_DIR$/Client/frontend/src/components/CreateAccount.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/frontend/src/components/MyLogin.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/frontend/src/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/node.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/frontend/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Client/frontend/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Client/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/frontend/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Client/frontend/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Client/frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Client/frontend/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/Database/db.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "thco8465"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;thco8465&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -32,6 +46,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -49,14 +66,17 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "code.cleanup.on.save": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "onboarding.tips.debug.path": "C:/Users/tcoll/IdeaProjects/OmniPotent/src/Main.java",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "preferences.general"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tcoll\IdeaProjects\OmniPotent\Client\frontend\src" />
       <recent name="C:\Users\tcoll\IdeaProjects\OmniPotent" />
     </key>
   </component>
@@ -108,5 +128,9 @@
     <MESSAGE value="first" />
     <MESSAGE value="second" />
     <option name="LAST_COMMIT_MESSAGE" value="second" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
