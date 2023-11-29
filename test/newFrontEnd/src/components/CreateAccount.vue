@@ -33,22 +33,19 @@ export default {
     };
   },
   methods: {
-    createAccount() {
-      // Send a request to your server to create the account
-      axios.post('/api/createAccount', this.newAccount)
-        .then(response => {
-          // Handle the response from the server
-          if (response.data.success) {
-            // Account created successfully
-            console.log('Account created');
-          } else {
-            // Account creation failed
-            console.error('Account creation failed');
-          }
-        })
-        .catch(error => {
-          console.error('Error creating account:', error);
-        });
+    async createAccount() {
+      try {
+        const response = await axios.post('/api/createAccount', this.newAccount);
+        if (response.data.success) {
+          // Account created successfully
+          console.log('Account created');
+        } else {
+          // Account creation failed
+          console.error('Account creation failed');
+        }
+      } catch (error) {
+        console.error('Error creating account:', error);
+      }
 
       // Reset the form
       this.newAccount = {
@@ -98,4 +95,3 @@ button {
   cursor: pointer;
 }
 </style>
-export default CreateAccount;
