@@ -7,8 +7,8 @@
     <div v-if="showErrorMessage" class="error-message">
       Invalid credentials. Please try again.
     </div>
-   <router-link to="/CreateAccount" class="create-account-link">
-         Don't have an account? Create an Account
+    <router-link to="/CreateAccount" class="create-account-link">
+      Don't have an account? Create an Account
     </router-link>
   </div>
 </template>
@@ -17,7 +17,7 @@
 import axios from 'axios';
 
 export default {
-    name: 'MyLogin',
+  name: 'MyLogin',
   data() {
     return {
       username: '',
@@ -34,8 +34,11 @@ export default {
         });
 
         if (response.data.success) {
-          // Login was successful, you can handle it here
+          // Login was successful
           console.log('Login successful');
+
+          // Navigate to the main menu page
+          this.$router.push('/MainMenu');
         } else {
           // Login failed, show error message
           this.showErrorMessage = true;

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const db = require('../Database/db.js'); // Adjust the path accordingly
-const PORT = 3000;
+const PORT = 5173; // Update the port to match the frontend
 
 app.use(bodyParser.json());
 
@@ -11,26 +11,8 @@ const users = [
   { username: 'user', password: 'password' },
 ];
 
-app.post('/api/login', async (req, res) => {
-  const { username, password } = req.body;
-
-  try {
-    // Query the database for the user with the provided username and password
-    const result = await db.oneOrNone('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
-
-    if (result) {
-      res.json({ success: true });
-    } else {
-      res.json({ success: false });
-    }
-  } catch (error) {
-    console.error('Error during login:', error);
-    res.json({ success: false });
-  }
-});
-
 // New endpoint for account creation
-app.post('/api/createAccount', async (req, res) => {
+app.post('/createAccount', async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
@@ -41,6 +23,24 @@ app.post('/api/createAccount', async (req, res) => {
   } catch (error) {
     console.error('Error creating account:', error);
     res.json({ success: false });
+  }
+});
+
+app.get('/createAccount', async (req, res) => {
+  const { username, email, password } = req.params;
+
+  try {
+    // Query the database for user information based on the provided username
+    const result = await db.oneOrNone('SELECT id, username, email FROM users WHERE username = $1', [username]);
+
+    if (result) {
+      res.json({ success: true, user: result });
+    } else {
+      res.json({ success: false, message: 'User not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching user information:', error);
+    res.json({ success: false, message: 'Error fetching user information' });
   }
 });
 

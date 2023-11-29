@@ -14,14 +14,15 @@
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="newAccount.password" required>
       </div>
-      <button type="submit">Create Account</button>
+      <button type="submit" :disabled="loading">Create Account</button>
+      <p v-if="error" class="error-message">{{ error }}</p>
     </form>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-
+import {createUser} from '../UserFactory'
 export default {
   data() {
     return {
@@ -30,21 +31,30 @@ export default {
         email: '',
         password: '',
       },
+      loading: false,
+      error: '',
     };
   },
   methods: {
     async createAccount() {
+      this.loading = true;
+      this.error = '';
+
       try {
-        const response = await axios.post('/api/createAccount', this.newAccount);
+        const user = createUser(this.newAccount.username, this.newAccount.email, this.newAccount.password);
+        const response = await axios.post('http://localhost:5173/createAccount', user);        
         if (response.data.success) {
-          // Account created successfully
           console.log('Account created');
+          // Optionally, redirect to another page or show a success message
         } else {
-          // Account creation failed
           console.error('Account creation failed');
+          this.error = 'Account creation failed. Please try again.';
         }
       } catch (error) {
         console.error('Error creating account:', error);
+        this.error = 'An unexpected error occurred. Please try again later.';
+      } finally {
+        this.loading = false;
       }
 
       // Reset the form
