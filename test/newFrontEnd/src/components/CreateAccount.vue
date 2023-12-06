@@ -22,7 +22,8 @@
 
 <script>
 import axios from 'axios';
-import {createUser} from '../UserFactory'
+import {createUser} from '../UserFactory';
+axios.defaults.baseURL = 'http://localhost:3000';
 export default {
   data() {
     return {
@@ -42,7 +43,7 @@ export default {
 
       try {
         const user = createUser(this.newAccount.username, this.newAccount.email, this.newAccount.password);
-        const response = await axios.post('http://localhost:5173/createAccount', user);        
+        const response = await axios.post('/createAccount', user);        
         if (response.data.success) {
           console.log('Account created');
           // Optionally, redirect to another page or show a success message
