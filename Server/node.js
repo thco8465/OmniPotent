@@ -21,7 +21,23 @@ app.post('/createAccount', async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
+// Endpoint for user login
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
 
+  try {
+    const result = await db.oneOrNone('SELECT id, username, email FROM users WHERE username = $1 AND password = $2', [username, password]);
+
+    if (result) {
+      res.json({ success: true, user: result });
+    } else {
+      res.status(401).json({ success: false, message: 'Invalid credentials' });
+    }
+  } catch (error) {
+    console.error('Error during login:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
 // Endpoint for fetching user information
 app.get('/userData/:username', async (req, res) => {
   const { username } = req.params;

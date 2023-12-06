@@ -2,6 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CreateAccount from '../components/CreateAccount.vue'
 import Login from '../components/MyLogin.vue'
+import mainMenu from '../components/mainMenu.vue'
+import Repeater from '../components/RepeaterGame.vue'
+import Profile from '../components/Profile.vue'
+import Achievements from '../components/Achievements.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL || '/'),
   routes: [
@@ -27,6 +31,26 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/mainMenu',
+      name: 'mainMenu',
+      component: mainMenu
+    },
+    {
+      path: '/repeater',
+      name: 'repeater',
+      component: Repeater
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile
+    },
+    {
+      path: '/achievements',
+      name: 'achievements',
+      component: Achievements
     }
   ]
 })

@@ -28,7 +28,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post('/MyLogin', {
+        const response = await axios.post('/login', {
           username: this.username,
           password: this.password,
         });
@@ -36,6 +36,8 @@ export default {
         if (response.data.success) {
           // Login was successful, you can handle it here
           console.log('Login successful');
+          this.$store.commit('setUser', response.data.user);
+          this.$router.push('/profile');
         } else {
           // Login failed, show error message
           this.showErrorMessage = true;
