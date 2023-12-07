@@ -6,6 +6,9 @@ import mainMenu from '../components/mainMenu.vue'
 import Repeater from '../components/RepeaterGame.vue'
 import Profile from '../components/Profile.vue'
 import Achievements from '../components/Achievements.vue'
+import ShapeClicker from '../components/ShapeClicker.vue'
+import Scramble from '../components/Scramble.vue'
+import Board from '../components/tileGame/gameBoard.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL || '/'),
   routes: [
@@ -51,6 +54,21 @@ const router = createRouter({
       path: '/achievements',
       name: 'achievements',
       component: Achievements
+    },
+    {
+      path: '/scramble',
+      name: 'scramble',
+      component: Scramble
+    },
+    {
+      path: '/shapeClicker',
+      name: 'shapeClicker',
+      component: ShapeClicker
+    },
+    {
+      path: '/tileGame',
+      name: 'tileGame',
+      component: Board
     }
   ]
 })

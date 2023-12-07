@@ -6,9 +6,28 @@
         {{ game.name }}
       </li>
     </ul>
+    <router-view></router-view>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      minigames: [
+        { name: 'Tile Memorization Game', route: 'tileGame' },
+        { name: 'Word Unscramble Game', route: 'scramble' },
+        { name: 'Shape Clicker Game', route: 'shapeClicker' },
+      ],
+    };
+  },
+  methods: {
+    selectGame(game) {
+      this.$router.push({ name: game.route });
+    },
+  },
+};
+</script>
 <style>
 .main-menu {
   min-height: 100vh;
@@ -41,25 +60,3 @@ li:hover {
 }
 </style>
 
-<script>
-export default {
-  data() {
-    return {
-      minigames: [
-        { name: 'Game 1', route: '/game1' },
-        { name: 'Game 2', route: '/game2' },
-        { name: 'Game 3', route: '/game3' },
-        // Add more games as needed
-      ],
-    };
-  },
-  methods: {
-    selectGame(game) {
-      // You can navigate to the selected game's route or perform other actions
-      console.log(`Selected ${game.name}`);
-      // For example, you might want to use Vue Router to navigate to the game's route:
-      // this.$router.push(game.route);
-    },
-  },
-};
-</script>
