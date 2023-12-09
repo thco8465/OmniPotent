@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Card from './Card.vue';
-
+import Card from './card.vue';
+import Observer from './observer.js'; // Import the Observer class
 export default {
   components: {
     Card,
@@ -27,6 +27,7 @@ export default {
       flippedCards: [],
       timer: 0,
       intervalId: null,
+      observer: new Observer(), // Instantiate the Observer
     };
   },
   computed: {
@@ -75,11 +76,20 @@ export default {
     allCardsMatched() {
       return this.cards.every((card) => card.matched);
     },
+    incrementTimer(seconds) {
+      this.timer += seconds;
+      this.observer.notify(this.timer); // Notify observers when the timer changes
+    },
   },
   mounted() {
     this.intervalId = setInterval(() => {
-      this.timer++;
+      this.incrementTimer(1);
     }, 1000);
+    // Subscribe to the observer to perform actions when the timer changes
+    this.observer.subscribe((newTime) => {
+      // Perform actions when the timer changes (e.g., update UI, trigger events)
+      console.log(`Timer changed: ${newTime} seconds`);
+    });
   },
 };
 </script>

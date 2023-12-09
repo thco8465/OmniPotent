@@ -1,8 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import CreateAccount from './components/CreateAccount.vue';
-import MyLogin from './components/MyLogin.vue';
+import { ref, onMounted, watch } from 'vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
+const isAuthenticated = ref(!!store.state.user);
+
+onMounted(() => {
+  watch(() => store.state.user, (user) => {
+    isAuthenticated.value = !!user;
+  });
+});
 </script>
 
 <template>
@@ -15,8 +23,10 @@ import MyLogin from './components/MyLogin.vue';
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/miniGames">MiniGames</RouterLink>
-        <RouterLink to="/createAccount">Create Account</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
+        <RouterLink v-if="!isAuthenticated" to="/createAccount">Create Account</RouterLink>
+        <RouterLink v-if="!isAuthenticated" to="/login">Login</RouterLink>
+        <router-link v-if="isAuthenticated" to="/Profile">Profile</router-link>
+        <router-link v-if="isAuthenticated" to="/Achievements">Achievements</router-link>
       </nav>
     </div>
   </header>

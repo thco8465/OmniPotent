@@ -7,46 +7,49 @@
     <div v-if="showErrorMessage" class="error-message">
       Invalid credentials. Please try again.
     </div>
-   <router-link to="/CreateAccount" class="create-account-link">
-         Don't have an account? Create an Account
+    <router-link to="/CreateAccount" class="create-account-link">
+      Don't have an account? Create an Account
     </router-link>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';  // Import useRouter from vue-router
 
 export default {
-    name: 'MyLogin',
-  data() {
-    return {
-      username: '',
-      password: '',
-      showErrorMessage: false,
-    };
-  },
-  methods: {
-    async login() {
+  setup() {
+    const store = useStore();
+    const username = ref('');
+    const password = ref('');
+    const showErrorMessage = ref(false);
+    const router = useRouter();  // Use useRouter to get the router instance
+    const login = async () => {
       try {
         const response = await axios.post('/login', {
-          username: this.username,
-          password: this.password,
+          username: username.value,
+          password: password.value,
         });
 
         if (response.data.success) {
-          // Login was successful, you can handle it here
-          console.log('Login successful');
-          this.$store.commit('setUser', response.data.user);
-          this.$router.push('/profile');
+          // Login was successful, update the user in the store
+          store.commit('setUser', response.data.user);
+          router.push('/profile');
         } else {
           // Login failed, show error message
-          this.showErrorMessage = true;
+          showErrorMessage.value = true;
         }
       } catch (error) {
         console.error('Error during login:', error);
-        this.showErrorMessage = true;
+        showErrorMessage.value = true;
       }
-    },
+    };
+
+    // Additional setup logic if needed
+
+    return { username, password, showErrorMessage, login };
   },
 };
 </script>

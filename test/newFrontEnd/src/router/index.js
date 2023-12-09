@@ -1,22 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import CreateAccount from '../components/CreateAccount.vue'
 import Login from '../components/MyLogin.vue'
-import mainMenu from '../components/mainMenu.vue'
 import Repeater from '../components/RepeaterGame.vue'
-import Profile from '../components/Profile.vue'
-import Achievements from '../components/Achievements.vue'
-import ShapeClicker from '../components/ShapeClicker.vue'
-import Scramble from '../components/Scramble.vue'
+import Profile from '../components/Profile/Profile.vue'
+import Achievements from '../components/Achievements/Achievements.vue'
+import ShapeClicker from '../components/shapeClicker/ShapeClicker.vue'
+import Scramble from '../components/Scramble/viewModel.vue'
 import Board from '../components/tileGame/gameBoard.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL || '/'),
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
     {
       path: '/miniGames',
       name: 'miniGames',
@@ -34,11 +27,6 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
-    },
-    {
-      path: '/mainMenu',
-      name: 'mainMenu',
-      component: mainMenu
     },
     {
       path: '/repeater',
