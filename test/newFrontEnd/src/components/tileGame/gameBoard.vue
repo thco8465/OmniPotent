@@ -1,15 +1,21 @@
+<!-- used to observe changes in the timer value. The timer value is incremented 
+every second, and subscribers are notified when the timer changes. -->
 <template>
   <div class="game-board">
-    <div class="timer">Time: {{ formattedTime }}</div>
-    <Card v-for="(card, index) in shuffledCards" :key="index" :is-flipped="card.flipped" :is-matched="card.matched" @flip="flipCard(index)">
-      {{ card.value }}
-    </Card>
+    <div class="timer-container">
+      <div class="timer">Time: {{ formattedTime }}</div>
+    </div>
+    <div class="cards-container">
+      <Card v-for="(card, index) in shuffledCards" :key="index" :is-flipped="card.flipped" :is-matched="card.matched" @flip="debouncedFlipCard(index)">
+        {{ card.value }}
+      </Card>
+    </div>
   </div>
 </template>
-
 <script>
 import Card from './card.vue';
 import Observer from './observer.js'; // Import the Observer class
+import _debounce from 'lodash-es/debounce';
 export default {
   components: {
     Card,
@@ -23,11 +29,22 @@ export default {
         { value: 'B', flipped: false, matched: false },
         { value: 'C', flipped: false, matched: false },
         { value: 'C', flipped: false, matched: false },
+        { value: 'D', flipped: false, matched: false },
+        { value: 'D', flipped: false, matched: false },
+        { value: 'E', flipped: false, matched: false },
+        { value: 'E', flipped: false, matched: false },
+        { value: 'F', flipped: false, matched: false },
+        { value: 'F', flipped: false, matched: false },
+        { value: 'G', flipped: false, matched: false },
+        { value: 'G', flipped: false, matched: false },
+        { value: 'H', flipped: false, matched: false },
+        { value: 'H', flipped: false, matched: false },
       ],
       flippedCards: [],
       timer: 0,
       intervalId: null,
       observer: new Observer(), // Instantiate the Observer
+      debouncedFlipCard: _debounce(this.flipCard, 300), // Adjust the debounce delay as needed
     };
   },
   computed: {
@@ -97,11 +114,18 @@ export default {
   /* Add your styles for the game board */
   .game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px); /* Adjust columns as needed */
+    grid-template-columns: repeat(4, 1fr); /* Adjust columns as needed */    
     grid-gap: 10px; /* Adjust gap as needed */
   }
-.timer {
+  .timer-container {
+  grid-column: span 4; /* Span the full width of the grid */
   margin-bottom: 10px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust columns as needed */
+  grid-gap: 10px; /* Adjust gap as needed */
 }
   </style>
   

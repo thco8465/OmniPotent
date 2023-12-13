@@ -22,7 +22,7 @@ onMounted(() => {
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/miniGames">MiniGames</RouterLink>
+        <RouterLink to="/miniGames">Arcade</RouterLink>
         <RouterLink v-if="!isAuthenticated" to="/createAccount">Create Account</RouterLink>
         <RouterLink v-if="!isAuthenticated" to="/login">Login</RouterLink>
         <router-link v-if="isAuthenticated" to="/Profile">Profile</router-link>

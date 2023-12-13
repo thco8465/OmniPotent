@@ -4,6 +4,8 @@
     "connect-history-api-fallback": "^2.0.0",
     "cors": "^2.8.5",
     "cors-anywhere": "^0.4.4",
+    "loadash": "^1.0.0",
+    "lodash-es": "^4.17.21",
     "vue-router": "^4.2.5",
     "vuex": "^4.1.0"
   }

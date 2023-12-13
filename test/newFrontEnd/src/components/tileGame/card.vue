@@ -24,13 +24,14 @@ export default {
 .card {
   width: 100px;
   height: 150px;
-  background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 8px;
   cursor: pointer;
   perspective: 1000px;
   transition: transform 0.6s;
   position: relative;
+  background-color: #8e44ad;
+  color: #DFFF00;
 }
 
 .card-content {

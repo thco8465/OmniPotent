@@ -1,0 +1,10 @@
+ Names: Thomas Collins
+ version: java version "21" 2023-09-19 LTS
+ Instructions: 
+ - navigate to test/newFrontEnd directory 
+ - type "npm run dev" to compile front end vue 
+ - Open another terminal and then from omnipotent directory
+ - type "node ./server/node.js" to run backend 
+ Extra: 
+ - Since postgres is run locally on my computer, navigating to the datebase folder and modifying the .env file to send the data to your own 
+ postgres user is what I would advise but this is unnecessary to run the application and get a general understanding of the project

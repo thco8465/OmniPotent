@@ -9,7 +9,7 @@ const words = [
     { original: 'keyboard', scrambled: 'bdaorkye' },
     { original: 'developer', scrambled: 'oevplreed' },
     { original: 'javascript', scrambled: 'sacajiptvr' },
-    // Add more words as needed
+    // Future: Add more words or fetch from an api
   ];
 
 export default words;

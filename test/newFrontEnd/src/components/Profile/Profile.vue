@@ -7,7 +7,6 @@
       <h2>Profile Information</h2>
       <p><strong>Username:</strong> {{ user.username }}</p>
       <p><strong>Email:</strong> {{ user.email }}</p>
-      <!-- Add other user properties as needed -->
     </section>
   </div>
 </template>
@@ -22,11 +21,11 @@ export default {
     const user = ref(null);
 
     onMounted(() => {
-      // Fetch user data from the store when the component is mounted
+      // Fetch user data from the store
       user.value = store.state.user;
     });
 
-    // Watch for changes to the user data in the store
+    // Watch for changes to the user data
     watchEffect(() => {
       user.value = store.state.user;
     });
@@ -43,8 +42,8 @@ export default {
 }
 
 header {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #DFFF00;
+  color: #8e44ad;
   padding: 20px;
   text-align: center;
 }
@@ -55,13 +54,13 @@ h1 {
 
 section {
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #DFFF00;
   border-radius: 5px;
   margin-top: 20px;
 }
 
 h2 {
-  color: #007bff;
+  color: #8e44ad;
 }
 
 p {

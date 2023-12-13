@@ -46,8 +46,8 @@ export default {
 }
 
 header {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #DFFF00;
+  color: #8e44ad;
   padding: 20px;
   text-align: center;
 }
@@ -58,13 +58,13 @@ h1 {
 
 section {
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #DFFF00;
   border-radius: 5px;
   margin-top: 20px;
 }
 
 h2 {
-  color: #007bff;
+  color: #8e44ad;
 }
 
 ul {
@@ -78,7 +78,7 @@ li {
 }
 
 .achieved {
-  color: #4caf50; /* Green color for achieved achievements */
+  color: #8e44ad; /* Green color for achieved achievements */
   font-weight: bold;
 }
 </style>

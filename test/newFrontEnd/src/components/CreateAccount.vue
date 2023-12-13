@@ -46,7 +46,6 @@ export default {
         const response = await axios.post('/createAccount', user);        
         if (response.data.success) {
           console.log('Account created');
-          // Optionally, redirect to another page or show a success message
         } else {
           console.error('Account creation failed');
           this.error = 'Account creation failed. Please try again.';
